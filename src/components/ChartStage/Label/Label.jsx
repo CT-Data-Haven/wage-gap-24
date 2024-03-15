@@ -17,7 +17,7 @@ const Label = ({ d, rScale, orFrameState, chart_type, margins, size }) => {
   } else if (barWidth > 60) {
     fontSize = 'text-lg';
   } else {
-    fontSize = 'text-base';
+    fontSize = 'text-xs md:text-sm';
   }
 
   return (

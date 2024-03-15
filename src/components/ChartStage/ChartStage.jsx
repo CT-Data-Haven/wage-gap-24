@@ -1,13 +1,13 @@
 import React from 'react';
-import Chart  from './Chart/Chart';
+import Chart from './Chart/Chart';
 import Legend from './Legend/Legend';
+import WrappedText from './WrappedText/WrappedText';
 // import Tooltip from './Tooltip/Tooltip';
 import Label from './Label/Label';
 import { format } from 'd3-format';
-
 import './ChartStage.scss';
 
-const ChartStage = ({ size, data, meta, title, extent, padding, palette }) => {
+const ChartStage = ({ size, data, meta, title, extent, padding, palette, shouldWrap, nChar }) => {
   const color = (d) => palette[d.color] || palette.default;
 
   const dotSize = 10;
@@ -31,14 +31,21 @@ const ChartStage = ({ size, data, meta, title, extent, padding, palette }) => {
     }
   };
 
+  const oLabeller = shouldWrap ? (d) => (
+    <WrappedText
+      text={d}
+      nChar={nChar}
+      shouldWrap={shouldWrap}
+      direction={meta.direction}
+    />) : true;
+
   const chartProps = {
     size: [size.x, size.y],
     color: color,
     oAccessor: 'x',
     rAccessor: 'value',
     oPadding: padding,
-    oLabel: true,
-    // oLabel: (d) => textwrap().bounds({ height: 30, width: 100 })(d),
+    oLabel: oLabeller,
     responsiveWidth: true,
     responsiveHeight: false,
   };
@@ -75,7 +82,7 @@ const ChartStage = ({ size, data, meta, title, extent, padding, palette }) => {
 
   return (
     <div className='ChartStage'>
-      <h3 className='text-xl font-semibold h-12 mt-4'>{title}</h3>
+      <h3 className='text-xl font-semibold min-h-12 mt-4'>{title}</h3>
       <Legend palette={palette} />
       <Chart
         {...chartProps}
@@ -90,13 +97,13 @@ const ChartStage = ({ size, data, meta, title, extent, padding, palette }) => {
         // tooltipContent={tooltip}
         svgAnnotationRules={
           meta.use_labels ? (d) => (
-          <Label
-            key={`label-${d.i}`}
-            {...d}
-            chart_type={meta.chart_type}
-            margins={margins}
-            size={size} />
-        ) : null
+            <Label
+              key={`label-${d.i}`}
+              {...d}
+              chart_type={meta.chart_type}
+              margins={margins}
+              size={size} />
+          ) : null
         }
       />
     </div>

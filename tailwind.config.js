@@ -19,14 +19,14 @@ export default {
               // color: theme('colors.fuchsia.600')
             },
             h1: {
-              fontWeight: '600'
+              fontWeight: '500'
             },
             h2: {
-              fontWeight: '600',
+              fontWeight: '500',
               marginBottom: '0.5em',
             },
             h3: {
-              fontWeight: '500'
+              fontWeight: '500',
             },
             p: {
               marginTop: 0

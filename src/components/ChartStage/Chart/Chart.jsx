@@ -6,7 +6,7 @@ import './Chart.scss';
 // animated transitions don't seem to work in semiotic v2
 const Chart = (props) => {
   return (
-    <div className='Chart font-narrow'>
+    <div className='Chart font-narrow '>
       <ResponsiveOrdinalFrame
         {...props}
         style={ d => ({ 

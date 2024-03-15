@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import _ from 'underscore';
 import { useResizeDetector } from 'react-resize-detector';
-import { expand, pivotDumbbell, nDistinct, calcPadding } from './utils';
+import { expand, nDistinct, calcPadding } from './utils';
 
 import ChartStage from './components/ChartStage/ChartStage';
 import TextPanel from './components/TextPanel/TextPanel';
@@ -22,11 +22,11 @@ function App() {
   const [page, setPage] = useState(1);
   
   const fullPalette = {
-    default: '#8e809c',
-    Men: '#506ca5',
-    Women: '#db6f2b',
-    'Full-time': '#733b8d',
-    'Part-time': '#adafb3'
+    default: '#8e809cee',
+    Men: '#506ca5ee',
+    Women: '#db6f2bee',
+    'Full-time': '#733b8dee',
+    'Part-time': '#adafb3ee'
   };
   
   const nPages = _.keys(fullData).length;
@@ -48,8 +48,13 @@ function App() {
   let nX = nDistinct(data);
   let padding = calcPadding(nX, width, meta.direction);
 
+  let size = { x: 500, y: 400 };
+  if (width < 600) {
+    size.y = 280;
+  }
+
   return (
-    <div className='App text-lg  mx-auto px-8 '>
+    <div className='App text-md md:text-lg  mx-auto'>
       <Header text='The many wage gaps in Connecticut' />
       <Container cols='lg:grid-cols-3'>
         <Column size={1} span='col-span-1 lg:col-span-1'>
@@ -67,13 +72,15 @@ function App() {
         <Column size={2} span='col-span-1 lg:col-span-2'>
           <div ref={ref}></div>
           <ChartStage
-            size={{ x: 500, y: 400 }}
+            size={size}
             data={data}
             meta={meta}
             title={text.chart_title}
             extent={extent}
             padding={padding}
             palette={palette}
+            shouldWrap={(width < 600) || (meta.direction === 'horizontal')}
+            nChar={meta.direction === 'vertical' ? 12 : 24}
           />
         </Column>
       </Container>

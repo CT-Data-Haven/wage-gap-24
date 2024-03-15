@@ -6,7 +6,7 @@ import './TextPanel.scss';
 const TextPanel = ({ text }) => {
   // console.log('text', text);
   return (
-    <div className='TextPanel prose '>
+    <div className='TextPanel prose min-h-56'>
       <Markdown>{text}</Markdown>
     </div>
   );

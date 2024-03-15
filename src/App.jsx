@@ -81,7 +81,7 @@ function App() {
         universe='All values are for adults ages 25 and older with positive earnings. Full-time is defined as working at least 35 hours per week, 50 weeks per year. '
         source='DataHaven analysis (2024) of data from US Census Bureau American Community Survey 2022 5-year estimates. Accessed via IPUMS USA, University of Minnesota. '
         sourceLink='https://www.ipums.org'
-        dataLink=''
+        dataLink='https://raw.githubusercontent.com/CT-Data-Haven/wage-gap-24/main/public/2022_datahaven_wage_gap.csv'
       />
     </div>
   );

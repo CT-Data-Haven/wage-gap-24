@@ -19,7 +19,7 @@ const Footer = ({ universe, source, sourceLink, dataLink }) => {
         <p>
           <span className='font-semibold'>Download data: </span> 
           <Link isExternal href={dataLink} underline='hover' className='ml-1'>
-            {dataLink}
+            Click and 'Save as...'
           </Link>
         </p>
       </footer>

@@ -4,7 +4,6 @@ import Legend from './Legend/Legend';
 // import Tooltip from './Tooltip/Tooltip';
 import Label from './Label/Label';
 import { format } from 'd3-format';
-import { textwrap } from 'd3-textwrap';
 
 import './ChartStage.scss';
 

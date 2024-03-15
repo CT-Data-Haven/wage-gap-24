@@ -1,0 +1,12 @@
+.Label {
+  &.direct-label {
+  z-index: 100;
+  position: relative; 
+}
+  &.direct-label text {
+  text-anchor: middle;
+  vertical-align: top;
+  transform: translateY(1.5rem);
+  fill: white;
+}
+}

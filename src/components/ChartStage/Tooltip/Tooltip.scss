@@ -1,0 +1,30 @@
+// g.interaction-overlay {
+//   position: relative;
+// }
+// from semiotic docs
+.tooltip-content {
+  background: #ffffffcc;
+  position: relative;
+  // position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #ddd;
+  color: black;
+  padding: 5px;
+  z-index: 100;
+  // transform: translateX(-50%) translateY(-105%);
+  min-width: 100px;
+}
+
+.tooltip-vertical {
+  transform: translateX(-50%) translateY(-105%);
+}
+
+.tooltip-horizontal {
+  transform: translateX(-105%) translateY(100%);
+}
+
+.tooltip-container {
+  opacity: 100;
+  z-index: 100;
+}
